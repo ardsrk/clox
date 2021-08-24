@@ -1,5 +1,5 @@
-clox: main.o chunk.o debug.o memory.o value.o vm.o
-	cc -o clox main.o chunk.o debug.o memory.o value.o vm.o
+clox: main.o chunk.o debug.o memory.o value.o vm.o compiler.o scanner.o
+	cc -o clox main.o chunk.o debug.o memory.o value.o vm.o compiler.o scanner.o
 
 main.o: main.c
 	cc -c main.c
@@ -19,5 +19,11 @@ value.o: value.c
 vm.o: vm.c
 	cc -c vm.c
 
+compiler.o: compiler.c
+	cc -c compiler.c
+
+scanner.o: scanner.c
+	cc -c scanner.c
+
 clean:
-	rm clox main.o chunk.o debug.o memory.o value.o vm.o
+	rm clox main.o chunk.o debug.o memory.o value.o vm.o scanner.o compiler.o
